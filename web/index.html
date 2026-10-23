@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ema & Juraj – Svadba 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F2EB;
+      --cream-alt: #ECE7DC;
+      --dark: #1a1410;
+      --gold: #C4A35A;
+      --gold-light: #E8D5A3;
+      --green: #1E4034;
+      --text: #3a3028;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+      /* Rovnaké vykreslenie písma na mobile aj na desktope */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-synthesis-weight: none;
+      font-synthesis: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      animation: slowzoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes slowzoom {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.12); }
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(20,14,8,0.5) 0%, rgba(20,14,8,0.35) 60%, rgba(20,14,8,0.65) 100%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; color: #fff;
+      padding: 0 24px;
+      animation: fadein 1.6s ease both;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-ampersand {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-divider {
+      width: 60px; height: 1px;
+      background: var(--gold);
+      margin: 20px auto;
+      opacity: 0.7;
+    }
+
+    .hero-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 28px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+    }
+    .hero-info-col { text-align: left; line-height: 1.8; }
+    .hero-info-col.right { text-align: right; }
+
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 56px;
+    }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1;
+      color: #fff;
+    }
+    .countdown-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-top: 4px;
+    }
+    .countdown-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      align-self: flex-start;
+      margin-top: 4px;
+      opacity: 0.6;
+    }
+
+    .btn-rsvp {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 1px solid rgba(255,255,255,0.6);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+      border-radius: 2px;
+    }
+    .btn-rsvp:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: var(--gold-light);
+    }
+
+    /* ── BIBLE VERSE ── */
+    .bible-verse-section {
+      background: var(--cream);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .bible-verse-section blockquote {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      padding: 48px 40px;
+      border: 1px solid var(--gold-light);
+      border-radius: 4px;
+    }
+
+    .bible-verse-section blockquote::before {
+      content: '\201C';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.35;
+      position: absolute;
+      top: -8px;
+      left: 16px;
+    }
+
+    .bible-verse-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .bible-verse-ref {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── STORY SECTION ── */
+    .story-section {
+      background: var(--cream);
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid var(--gold-light);
+    }
+
+    .story-section .section-tag-dark {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .story-section .story-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--dark);
+      margin-bottom: 40px;
+    }
+
+    .story-body {
+      max-width: 680px;
+      margin: 0 auto;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      line-height: 1.85;
+      color: var(--text);
+    }
+
+    .story-body p + p {
+      margin-top: 1.4em;
+    }
+
+    /* ── INFO SECTION ── */
+    .info-section {
+      background: var(--cream-alt);
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid var(--gold-light);
+    }
+
+    .info-section .section-tag-dark {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .info-section .info-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--dark);
+      margin-bottom: 56px;
+    }
+
+    .info-cards {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .info-card {
+      flex: 1 1 320px;
+      max-width: 400px;
+      background: var(--cream);
+      border: 1px solid var(--gold-light);
+      border-radius: 4px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .info-card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+
+    .info-card-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .info-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .info-card-body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: var(--text);
+      opacity: 0.85;
+    }
+
+    .info-card-map {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 7px;
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 2px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .info-card-map::after {
+      content: '↗';
+      font-size: 0.7em;
+      color: var(--gold);
+      transition: transform 0.3s ease;
+    }
+
+    .info-card-map:hover,
+    .info-card-map:focus-visible {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .info-card-map:hover::after,
+    .info-card-map:focus-visible::after {
+      transform: translate(2px, -2px);
+    }
+
+    .info-card-map-hint {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+    }
+
+    .info-card-time {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-top: 1px solid var(--gold-light);
+      padding-top: 14px;
+      width: 100%;
+    }
+
+    /* ── GALLERY SECTION ── */
+    .gallery-section {
+      background: var(--cream);
+      padding: 80px 24px;
+      text-align: center;
+      border-top: 1px solid var(--gold-light);
+    }
+
+    .gallery-section .section-tag-dark {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .gallery-section .gallery-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .gallery-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      color: var(--text);
+      opacity: 0.8;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background: var(--cream-alt);
+      border: 1px solid var(--gold-light);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-placeholder {
+      font-size: 1.6rem;
+      color: var(--gold);
+      opacity: 0.45;
+    }
+
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── RSVP SECTION ── */
+    #rsvp {
+      background: var(--green);
+      color: #fff;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 48px;
+      color: #fff;
+    }
+
+    .iframe-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+
+    .iframe-wrapper iframe {
+      width: 100%;
+      height: 900px;
+      border: none;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 28px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+    footer span { color: var(--gold); }
+
+    @media (max-width: 520px) {
+      .hero-info { gap: 20px; font-size: 0.72rem; }
+      .countdown-num { font-size: 1.6rem; }
+      .countdown-item { min-width: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=1600&auto=format&fit=crop"
+    alt="Svadba"
+  />
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-label">Svadba</p>
+
+    <h1 class="hero-names">
+      Ema <span class="hero-ampersand">&</span> Juraj
+    </h1>
+
+    <div class="hero-divider"></div>
+
+    <div class="hero-info">
+      <div class="hero-info-col">
+        <div>Ema Neslušanová</div>
+        <div>Žilina</div>
+      </div>
+      <div class="hero-info-col right">
+        <div>Juraj Ledecký</div>
+        <div>Nemešany</div>
+      </div>
+    </div>
+
+    <p class="hero-date">29. Máj 2027</p>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-days">—</span>
+        <span class="countdown-label">Dni</span>
+      </div>
+      <div class="countdown-sep">·</div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-hours">—</span>
+        <span class="countdown-label">Hod</span>
+      </div>
+      <div class="countdown-sep">·</div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-min">—</span>
+        <span class="countdown-label">Min</span>
+      </div>
+      <div class="countdown-sep">·</div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-sec">—</span>
+        <span class="countdown-label">Sek</span>
+      </div>
+    </div>
+
+    <a href="#rsvp" class="btn-rsvp">Potvrdiť účasť</a>
+  </div>
+</section>
+
+<!-- Bible Verse -->
+<section class="bible-verse-section">
+  <blockquote>
+    <p class="bible-verse-text">Lepší sú dvaja ako jeden, lebo majú dobrú odmenu za svoju námahu. Ak padnú, jeden zdvihne druhého.</p>
+    <cite class="bible-verse-ref">Kazateľ 4:9–10</cite>
+  </blockquote>
+</section>
+
+<!-- Story Section -->
+<section class="story-section">
+  <p class="section-tag-dark">Náš príbeh</p>
+  <h2 class="story-title">Príbeh, ktorý sme spolu začali</h2>
+  <div class="story-body story-poem">
+    <p>
+      Stretli sa na lezeckej stene, tam sa to stalo,<br>
+      jedno milé stretnutie, udialo sa čo sa malo.<br>
+      On sa jej predstavil, ona tiež bez váhania,<br>
+      ešte netušili, kam povedie cesta ich spoznávania.
+    </p>
+    <p>
+      Druhý krát osud zasiahol v električke náhle,<br>
+      ona ho oslovila, on si však spomínal márne.<br>
+      Usmiala sa, milo mu pripomenula ako sa volá,<br>
+      začala sa tak písať ich spoločná kapitola.
+    </p>
+    <p>
+      Tretie stretnutie patrilo opere a jej kráse,<br>
+      kde sa ich príbehy začali prepájať v jednom čase.<br>
+      Držanie za ruky, prechádzky mestom, lúčenie sa na zastávke,<br>
+      návšteva ostrova, spoločné varenie, kvetové lupene v obálke.
+    </p>
+    <p>
+      Stretali sa často, v čajovni, na streche, v uliciach mesta,<br>
+      pri západe slnka sa opýtal, či bude jeho nevesta.<br>
+      Ona sa túlila, skromne mu sľúbila, prstienok jej sekne,<br>
+      veľmi sa milujú, spolu si tancujú, bozk na dobrú noc v metre.
+    </p>
+    <p>
+      Čoskoro sa stretnú znovu, v kostole pred oltárom Jeho,<br>
+      on jej sľúbi vernosť a ona zmení si meno.
+    </p>
+  </div>
+</section>
+
+<!-- Info Section -->
+<section class="info-section">
+  <p class="section-tag-dark">Informácie</p>
+  <h2 class="info-title">Svadobný deň</h2>
+  <div class="info-cards">
+
+    <div class="info-card">
+      <div class="info-card-icon">⛪</div>
+      <div class="info-card-label">Sobáš</div>
+      <div class="info-card-title">Kostol sv. Jozefa, robotníka</div>
+      <div class="info-card-body">
+        <a class="info-card-map"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Kostol%20sv.%20Jozefa%20robotn%C3%ADka%2C%20Horn%C3%A1%201226%2F2A%2C%20010%2003%20%C5%BDilina"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Navigovať na Kostol sv. Jozefa, robotníka — Horná 1226/2A, 010 03 Žilina">
+          Horná 1226/2A, 010 03 Žilina
+        </a>
+        <span class="info-card-map-hint">Kliknite pre navigáciu</span>
+      </div>
+      <span class="info-card-time">Začiatok o 15:00</span>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-icon">🥂</div>
+      <div class="info-card-label">Oslava</div>
+      <div class="info-card-title">Kaštieľ Krasňany</div>
+      <div class="info-card-body">
+        <a class="info-card-map"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Ka%C5%A1tie%C4%BE%20Krasn%C5%88any%2C%20Krasn%C5%88any%2021%2C%20013%2001%20Krasn%C5%88any"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Navigovať na Kaštieľ Krasňany — Krasňany 21, 013 01 Krasňany">
+          Krasňany 21, 013 01 Krasňany
+        </a>
+        <span class="info-card-map-hint">Kliknite pre navigáciu</span>
+      </div>
+      <span class="info-card-time">Začiatok o 18:00</span>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-icon">🚌</div>
+      <div class="info-card-label">Doprava</div>
+      <div class="info-card-title">Odvezieme Vás</div>
+      <div class="info-card-body">
+        Z kostola do kaštieľa bude zabezpečená autobusová doprava. V kaštieli je dostatok parkovacích miest aj pre osobné autá.
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-icon">👗</div>
+      <div class="info-card-label">Dress code</div>
+      <div class="info-card-title">Cíťte sa pohodlne</div>
+      <div class="info-card-body">
+        Nevyžadujeme dress code. Oblečte si niečo pekné, v čom sa budete cítiť dobre.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <p class="section-tag-dark">Galéria</p>
+  <h2 class="gallery-title">Naše momenty</h2>
+  <p class="gallery-subtitle">Pár našich spoločných okamihov.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="images/galeria/zastavka.jpeg" alt="Ema a Juraj – spoločný okamih" loading="lazy" /></div>
+    <div class="gallery-item"><img src="images/galeria/moment-1.jpg" alt="Ema a Juraj – spoločný okamih" loading="lazy" /></div>
+    <div class="gallery-item"><img src="images/galeria/moment-2.jpg" alt="Ema a Juraj – spoločný okamih" loading="lazy" /></div>
+    <div class="gallery-item"><img src="images/galeria/moment-3.jpg" alt="Ema a Juraj – spoločný okamih" loading="lazy" /></div>
+    <div class="gallery-item"><img src="images/galeria/moment-4.jpg" alt="Ema a Juraj – spoločný okamih" loading="lazy" /></div>
+    <div class="gallery-item"><img src="images/galeria/moment-5.jpg" alt="Ema a Juraj – spoločný okamih" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <p class="section-tag">RSVP</p>
+  <h2 class="section-title">Potvrďte svoju účasť</h2>
+
+  <div class="iframe-wrapper">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLScnyWKXzFtD3azGibaS7FtNNjIgGrFtEFj3NwZP0sz1fkaRVw/viewform?embedded=true"
+      title="Svadobný RSVP formulár"
+    >
+      Načítava sa formulár…
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <span>Ema & Juraj</span> · 29. Máj 2027
+</footer>
+
+<script>
+  const target = new Date("2027-05-29T15:00:00");
+
+  function pad(n) { return String(n).padStart(2, "0"); }
+
+  function tick() {
+    const now = new Date();
+    const diff = Math.max(0, target - now);
+    const days  = Math.floor(diff / 864e5);
+    const hours = Math.floor((diff % 864e5) / 36e5);
+    const mins  = Math.floor((diff % 36e5)  / 6e4);
+    const secs  = Math.floor((diff % 6e4)   / 1e3);
+
+    document.getElementById("cd-days").textContent  = days;
+    document.getElementById("cd-hours").textContent = pad(hours);
+    document.getElementById("cd-min").textContent   = pad(mins);
+    document.getElementById("cd-sec").textContent   = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
