@@ -224,21 +224,11 @@
 
     .story-section {
       position: relative;
-      background:
-        linear-gradient(rgba(247, 241, 232, 0.8), rgba(247, 241, 232, 0.8)),
-        url("galeria/bac.jpg") center center / cover no-repeat;
+      background: var(--cream);
       padding: 80px 24px;
       text-align: center;
       border-top: 1px solid var(--gold-light);
       color: var(--dark);
-    }
-
-    .story-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.08);
-      pointer-events: none;
     }
 
     .story-section .section-tag-dark {
@@ -261,7 +251,7 @@
       z-index: 1;
     }
 
-       .story-body {
+    .story-body {
       max-width: 680px;
       margin: 8px auto 0;
       font-family: 'Cormorant Garamond', serif;
@@ -558,8 +548,6 @@
       .hero-info { gap: 20px; font-size: 0.72rem; }
       .countdown-num { font-size: 1.6rem; }
       .countdown-item { min-width: 44px; }
-      .story-floral-frame { padding: 14px 10px 10px; }
-      .story-vine { height: 90px; }
     }
   </style>
 </head>
@@ -632,125 +620,49 @@
   <p class="section-tag-dark">Náš príbeh</p>
   <h2 class="story-title">Príbeh, ktorý sme spolu začali</h2>
 
-  <div class="story-floral-frame">
-    <svg class="story-vine" viewBox="0 0 1000 120" aria-hidden="true">
-      <path class="spiral" d="M25 65 C 95 6, 210 10, 230 66 C 246 109, 189 112, 170 75 C 155 45, 180 20, 220 31" />
-      <path class="stem" d="M20 80 C120 24, 170 98, 250 82 S380 28, 465 80 S590 110, 680 78 S820 22, 930 80 S980 105, 995 66" />
+  <div class="story-body story-poem">
+    <p>
+      Stretli sa na lezeckej stene, tam sa to stalo,<br>
+      jedno milé stretnutie, udialo sa, čo sa malo.<br>
+      On sa jej predstavil, ona tiež bez váhania,<br>
+      ešte netušili, kam povedie cesta ich spoznávania.
+    </p>
 
-      <path class="leaf" d="M280 72 C300 48, 330 46, 348 70 C323 82, 300 84, 280 72 Z" />
-      <path class="leaf" d="M468 76 C486 52, 516 50, 536 74 C512 86, 488 88, 468 76 Z" />
-      <path class="leaf" d="M718 70 C735 47, 765 46, 782 70 C756 82, 734 84, 718 70 Z" />
-      <path class="leaf" d="M855 72 C872 48, 900 48, 918 70 C894 83, 875 85, 855 72 Z" />
+    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-      <g transform="translate(210 78)">
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(0)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(72)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(144)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(216)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(288)" />
-        <circle class="flower-center" cx="0" cy="0" r="4" />
-      </g>
+    <p>
+      Druhýkrát osud zasiahol v električke náhle,<br>
+      ona ho oslovila, on si však spomínal márne.<br>
+      Usmiala sa, milo mu pripomenula, ako sa volá,<br>
+      začala sa tak písať ich spoločná kapitola.
+    </p>
 
-      <g transform="translate(510 84)">
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(0)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(72)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(144)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(216)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(288)" />
-        <circle class="flower-center" cx="0" cy="0" r="4" />
-      </g>
+    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-      <g transform="translate(785 76)">
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(0)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(72)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(144)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(216)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(288)" />
-        <circle class="flower-center" cx="0" cy="0" r="4" />
-      </g>
-    </svg>
+    <p>
+      Tretie stretnutie patrilo opere a jej kráse,<br>
+      kde sa ich príbehy začali prepájať v jednom čase.<br>
+      Držanie za ruky, prechádzky mestom, lúčenie na zastávke,<br>
+      návšteva ostrova, spoločné varenie, sušené lupene v obálke.
+    </p>
 
-    <div class="story-body story-poem">
-      <p>
-        Stretli sa na lezeckej stene, tam sa to stalo,<br>
-        jedno milé stretnutie, udialo sa, čo sa malo.<br>
-        On sa jej predstavil, ona tiež bez váhania,<br>
-        ešte netušili, kam povedie cesta ich spoznávania.
-      </p>
+    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
+    <p>
+      Stretali sa často, v čajovni, v uliciach mesta,<br>
+      pri západe slnka sa opýtal, či bude jeho nevesta.<br>
+      Radostne sa túlila, prstienok jej sekne,<br>
+      spolu si tancujú, bozk na dobrú noc v metre.
+    </p>
 
-      <p>
-        Druhýkrát osud zasiahol v električke náhle,<br>
-        ona ho oslovila, on si však spomínal márne.<br>
-        Usmiala sa, milo mu pripomenula, ako sa volá,<br>
-        začala sa tak písať ich spoločná kapitola.
-      </p>
+    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
-
-      <p>
-        Tretie stretnutie patrilo opere a jej kráse,<br>
-        kde sa ich príbehy začali prepájať v jednom čase.<br>
-        Držanie za ruky, prechádzky mestom, lúčenie na zastávke,<br>
-        návšteva ostrova, spoločné varenie, sušené lupene v obálke.
-      </p>
-
-      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
-
-      <p>
-        Stretali sa často, v čajovni, v uliciach mesta,<br>
-        pri západe slnka sa opýtal, či bude jeho nevesta.<br>
-        Radostne sa túlila, prstienok jej sekne,<br>
-        spolu si tancujú, bozk na dobrú noc v metre.
-      </p>
-
-      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
-
-      <p>
-        Čoskoro sa stretnú v kostole pred oltárom Jeho,<br>
-        on jej sľúbi vernosť a ona zmení si meno.<br>
-        Pred Bohom spoja svoje skromné svety,<br>
-        a od tej chvíle budú kráčať spolu celé veky.
-      </p>
-    </div>
-
-    <svg class="story-vine" viewBox="0 0 1000 120" aria-hidden="true" style="transform: scaleY(-1);">
-      <path class="spiral" d="M25 65 C 95 6, 210 10, 230 66 C 246 109, 189 112, 170 75 C 155 45, 180 20, 220 31" />
-      <path class="stem" d="M20 80 C120 24, 170 98, 250 82 S380 28, 465 80 S590 110, 680 78 S820 22, 930 80 S980 105, 995 66" />
-
-      <path class="leaf" d="M280 72 C300 48, 330 46, 348 70 C323 82, 300 84, 280 72 Z" />
-      <path class="leaf" d="M468 76 C486 52, 516 50, 536 74 C512 86, 488 88, 468 76 Z" />
-      <path class="leaf" d="M718 70 C735 47, 765 46, 782 70 C756 82, 734 84, 718 70 Z" />
-      <path class="leaf" d="M855 72 C872 48, 900 48, 918 70 C894 83, 875 85, 855 72 Z" />
-
-      <g transform="translate(210 78)">
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(0)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(72)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(144)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(216)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(288)" />
-        <circle class="flower-center" cx="0" cy="0" r="4" />
-      </g>
-
-      <g transform="translate(510 84)">
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(0)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(72)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(144)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(216)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(288)" />
-        <circle class="flower-center" cx="0" cy="0" r="4" />
-      </g>
-
-      <g transform="translate(785 76)">
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(0)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(72)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(144)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(216)" />
-        <ellipse class="petal" cx="0" cy="-12" rx="8" ry="16" transform="rotate(288)" />
-        <circle class="flower-center" cx="0" cy="0" r="4" />
-      </g>
-    </svg>
+    <p>
+      Čoskoro sa stretnú v kostole pred oltárom Jeho,<br>
+      on jej sľúbi vernosť a ona zmení si meno.<br>
+      Pred Bohom spoja svoje skromné svety,<br>
+      a od tej chvíle budú kráčať spolu celé veky.
+    </p>
   </div>
 </section>
 
