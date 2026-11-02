@@ -249,6 +249,59 @@
       margin-bottom: 40px;
     }
 
+    .story-floral-frame {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 50px 38px;
+      border: 1px solid rgba(196, 163, 90, 0.7);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(196, 163, 90, 0.24);
+      backdrop-filter: blur(0.5px);
+    }
+
+    .story-floral-frame::before,
+    .story-floral-frame::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(196, 163, 90, 0.26);
+      pointer-events: none;
+    }
+
+    .flower-corner {
+      position: absolute;
+      width: 54px;
+      height: 54px;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .flower-corner::before,
+    .flower-corner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(196, 163, 90, 0.9) 0 12%, transparent 12.5%),
+        radial-gradient(circle at 14% 50%, rgba(196, 163, 90, 0.9) 0 12%, transparent 12.5%),
+        radial-gradient(circle at 86% 50%, rgba(196, 163, 90, 0.9) 0 12%, transparent 12.5%),
+        radial-gradient(circle at 50% 88%, rgba(196, 163, 90, 0.9) 0 12%, transparent 12.5%),
+        radial-gradient(circle at 50% 50%, rgba(196, 163, 90, 0.7) 0 10%, transparent 10.5%);
+      border-radius: 50%;
+    }
+
+    .flower-corner::after {
+      inset: 18px;
+      background: rgba(196, 163, 90, 0.7);
+      box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.4);
+    }
+
+    .flower-top-left { top: 10px; left: 10px; }
+    .flower-top-right { top: 10px; right: 10px; transform: scaleX(-1); }
+    .flower-bottom-left { bottom: 10px; left: 10px; transform: scaleY(-1); }
+    .flower-bottom-right { bottom: 10px; right: 10px; transform: scale(-1); }
+
     .story-body {
       max-width: 680px;
       margin: 0 auto;
@@ -544,6 +597,8 @@
       .hero-info { gap: 20px; font-size: 0.72rem; }
       .countdown-num { font-size: 1.6rem; }
       .countdown-item { min-width: 44px; }
+      .story-floral-frame { padding: 40px 20px; }
+      .flower-corner { width: 42px; height: 42px; }
     }
   </style>
 </head>
@@ -615,49 +670,57 @@
 <section class="story-section">
   <p class="section-tag-dark">Náš príbeh</p>
   <h2 class="story-title">Príbeh, ktorý sme spolu začali</h2>
-  <div class="story-body story-poem">
-    <p>
-      Stretli sa na lezeckej stene, tam sa to stalo,<br>
-      jedno milé stretnutie, udialo sa, čo sa malo.<br>
-      On sa jej predstavil, ona tiež bez váhania,<br>
-      ešte netušili, kam povedie cesta ich spoznávania.
-    </p>
 
-    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
+  <div class="story-floral-frame">
+    <span class="flower-corner flower-top-left" aria-hidden="true"></span>
+    <span class="flower-corner flower-top-right" aria-hidden="true"></span>
+    <span class="flower-corner flower-bottom-left" aria-hidden="true"></span>
+    <span class="flower-corner flower-bottom-right" aria-hidden="true"></span>
 
-    <p>
-      Druhýkrát osud zasiahol v električke náhle,<br>
-      ona ho oslovila, on si však spomínal márne.<br>
-      Usmiala sa, milo mu pripomenula, ako sa volá,<br>
-      začala sa tak písať ich spoločná kapitola.
-    </p>
+    <div class="story-body story-poem">
+      <p>
+        Stretli sa na lezeckej stene, tam sa to stalo,<br>
+        jedno milé stretnutie, udialo sa, čo sa malo.<br>
+        On sa jej predstavil, ona tiež bez váhania,<br>
+        ešte netušili, kam povedie cesta ich spoznávania.
+      </p>
 
-    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
+      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-    <p>
-      Tretie stretnutie patrilo opere a jej kráse,<br>
-      kde sa ich príbehy začali prepájať v jednom čase.<br>
-      Držanie za ruky, prechádzky mestom, lúčenie na zastávke,<br>
-      návšteva ostrova, spoločné varenie, sušené lupene v obálke.
-    </p>
+      <p>
+        Druhýkrát osud zasiahol v električke náhle,<br>
+        ona ho oslovila, on si však spomínal márne.<br>
+        Usmiala sa, milo mu pripomenula, ako sa volá,<br>
+        začala sa tak písať ich spoločná kapitola.
+      </p>
 
-    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
+      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-    <p>
-      Stretali sa často, v čajovni, v uliciach mesta,<br>
-      pri západe slnka sa opýtal, či bude jeho nevesta.<br>
-      Radostne sa túlila, prstienok jej sekne,<br>
-      spolu si tancujú, bozk na dobrú noc v metre.
-    </p>
+      <p>
+        Tretie stretnutie patrilo opere a jej kráse,<br>
+        kde sa ich príbehy začali prepájať v jednom čase.<br>
+        Držanie za ruky, prechádzky mestom, lúčenie na zastávke,<br>
+        návšteva ostrova, spoločné varenie, sušené lupene v obálke.
+      </p>
 
-    <div class="story-divider" aria-hidden="true"><span>❦</span></div>
+      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
 
-    <p>
-      Čoskoro sa stretnú v kostole pred oltárom Jeho,<br>
-      on jej sľúbi vernosť a ona zmení si meno.<br>
-      Pred Bohom spoja svoje skromné svety,<br>
-      a od tej chvíle budú kráčať spolu celé veky.
-    </p>
+      <p>
+        Stretali sa často, v čajovni, v uliciach mesta,<br>
+        pri západe slnka sa opýtal, či bude jeho nevesta.<br>
+        Radostne sa túlila, prstienok jej sekne,<br>
+        spolu si tancujú, bozk na dobrú noc v metre.
+      </p>
+
+      <div class="story-divider" aria-hidden="true"><span>❦</span></div>
+
+      <p>
+        Čoskoro sa stretnú v kostole pred oltárom Jeho,<br>
+        on jej sľúbi vernosť a ona zmení si meno.<br>
+        Pred Bohom spoja svoje skromné svety,<br>
+        a od tej chvíle budú kráčať spolu celé veky.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -710,7 +773,7 @@
     <div class="info-card">
       <div class="info-card-icon">👗</div>
       <div class="info-card-label">Dress code</div>
-      <div class="info-card-title">Cíťte sa pohodlne</div>
+      <div class="info-card-title">Cí��te sa pohodlne</div>
       <div class="info-card-body">
         Nevyžadujeme dress code. Oblečte si niečo pekné, v čom sa budete cítiť dobre.
       </div>
